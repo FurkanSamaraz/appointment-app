@@ -1,0 +1,46 @@
+    apiVersion: apps/v1
+    kind: Deployment  # Kubernetes'de bir Deployment oluşturulacak
+    metadata:
+      labels:
+        app.kubernetes.io/name: load-balancer-meeting-app  # Etiketler, Deployment'ın belirli bir uygulama ile ilişkilendirilmesini sağlar
+      name: meeting-app  # Deployment'ın adı
+    spec:
+      replicas: 5  # Deployment, 5 adet replika (kopya) konteyner oluşturacak
+
+      # Deployment'ın yönetileceği kaynakları seçmek için seçici tanımlanıyor
+      selector:
+        matchLabels:
+          app.kubernetes.io/name: load-balancer-meeting-app  # Belirli bir etiketle eşleşen kaynaklar seçilecek
+
+      # Deployment için kullanılacak pod şablonu tanımlanıyor
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/name: load-balancer-meeting-app  # Pod şablonunun etiketleri
+        spec:
+          resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+          requests:
+            cpu: "0.2"
+            memory: "256Mi"      
+          containers:
+          - image: meeting-app:latest  # Konteynerde kullanılacak Docker imajı
+            name: meeting-app  # Konteyner adı
+            imagePullPolicy: Never  # Docker imajı her zaman yerelde bulundurulacak
+            ports:
+            - containerPort: 3000  # Konteyner içinde açılacak port numarası
+            env:
+            - name: MY_PORT
+              value: ""  # Konteyner içinde kullanılacak port numarası
+            - name: "DB_HOST"
+              value: ""  # PostgreSQL servisinin adı (hostname) <minikube ip> ekle
+            - name: DB_USER
+              value: ""  # PostgreSQL kullanıcı adı 
+            - name:   "DB_PASSWORD" 
+              value: ""  # PostgreSQL şifresi
+            - name: DB_NAME
+              value: ""  # PostgreSQL veritabanı adı
+            - name: DB_PORT
+              value: ""  # PostgreSQL portu
