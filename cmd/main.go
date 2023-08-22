@@ -11,6 +11,12 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/monitor"
 )
 
+// @title          Meetin APP API
+// @version        1.0
+// @BasePath       /api/v1
+// @schemes        http https
+// @Accept         json
+// @Produce        json
 func main() {
 	port := configs.EnvGetURI("APP_PORT")
 

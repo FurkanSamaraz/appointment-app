@@ -31,7 +31,7 @@ type PaginationResponse struct {
 // @Tags        	meeting Service
 // @Id					 ApiV1MettingAppServicePagination
 // @Success      200  {array}  api_structure.Service
-// @Failure      400  {object}  ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Service/pagination [get]
 func (controller *ServiceController) GetServiceWithPagination(c *fiber.Ctx) error {
 	var Services []api_structure.ServiceFilter
@@ -106,9 +106,7 @@ func (controller *ServiceController) GetServiceWithPagination(c *fiber.Ctx) erro
 // @Param joins query string false "Service,Service" default(Service,Service)
 // @Param fields query string false "integrationId,name,createdBy,createdAt,updatedAt,deletedAt" default(integrationId,name,createdBy,createdAt,updatedAt,deletedAt)
 // @Success      200  {array}  api_structure.Service
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Service/search [get]
 func (controller *ServiceController) GetService(c *fiber.Ctx) error {
 	var Service_table_name api_structure.ServiceFilter
@@ -132,9 +130,7 @@ func (controller *ServiceController) GetService(c *fiber.Ctx) error {
 // @Param joins query string false "Service,Service" default(Service,Service)
 // @Param fields query string false "integrationId,name,createdBy,createdAt,updatedAt,deletedAt" default(integrationId,name,createdBy,createdAt,updatedAt,deletedAt)
 // @Success      200  {array}  api_structure.Service
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Service/with-id/:id [get]
 func (controller *ServiceController) GetServiceById(c *fiber.Ctx) error {
 
@@ -163,9 +159,7 @@ func (controller *ServiceController) GetServiceById(c *fiber.Ctx) error {
 // @Id					 ApiV1MettingAppServiceUpdateWithID
 // @Param request body api_structure.ServiceEdit true "update params"
 // @Success      200  {object}  api_structure.Service
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Service/with-id/:id [put]
 func (controller *ServiceController) UpdateService(c *fiber.Ctx) error {
 
@@ -206,9 +200,7 @@ func (controller *ServiceController) UpdateService(c *fiber.Ctx) error {
 // @Id					 ApiV1MettingAppServicesUpdateMultiple
 // @Param request body api_structure.ServiceEdit true "update params"
 // @Success      200  {array}  api_structure.Service
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Service/multiple [put]
 func (controller *ServiceController) UpdateServiceMultiple(c *fiber.Ctx) error {
 	editData := []api_structure.ServiceEdit{}
@@ -240,9 +232,7 @@ func (controller *ServiceController) UpdateServiceMultiple(c *fiber.Ctx) error {
 // @Id					 ApiV1MettingAppServiceCreate
 // @Param request body api_structure.ServiceFilter true "update params"
 // @Success      200  {object}  api_structure.Service
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Service/single [post]
 func (controller *ServiceController) CreateService(c *fiber.Ctx) error {
 	data := api_structure.ServiceForm{}
@@ -271,9 +261,7 @@ func (controller *ServiceController) CreateService(c *fiber.Ctx) error {
 // @Param id path string false "id uuid"
 // @Param request body api_structure.ServiceFilter true "update params"
 // @Success      200  {array}  api_structure.Service
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Service/multiple [post]
 func (controller *ServiceController) CreateServiceMultiple(c *fiber.Ctx) error {
 
@@ -304,9 +292,7 @@ func (controller *ServiceController) CreateServiceMultiple(c *fiber.Ctx) error {
 // @Produce      json
 // @Param id path string false "id uuid"
 // @Success      200  {string}  string
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Service/with-id/:id [delete]
 func (controller *ServiceController) DeleteService(c *fiber.Ctx) error {
 	id := c.Params("id")

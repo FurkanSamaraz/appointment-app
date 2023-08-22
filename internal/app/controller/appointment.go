@@ -33,9 +33,7 @@ type PaginationAppointment struct {
 // @Tags        	meeting Appointment
 // @Id					 ApiV1MeetingAppAppointmentPagination
 // @Success      200  {array}  api_structure.Appointment
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object}  ResponseObject
-// @Failure      500  {object}  ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Appointment/pagination [get]
 func (controller *AppointmentController) GetAppointmentWithPagination(c *fiber.Ctx) error {
 	var Appointments []api_structure.AppointmentFilter
@@ -103,9 +101,7 @@ func (controller *AppointmentController) GetAppointmentWithPagination(c *fiber.C
 // @Tags        	meeting Appointment
 // @Id					 ApiV1MeetingAppAppointmentSearch
 // @Success      200  {array}  api_structure.Appointment
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Appointment/search [get]
 func (controller *AppointmentController) GetAppointment(c *fiber.Ctx) error {
 	var Appointment_table_name api_structure.AppointmentFilter
@@ -126,9 +122,7 @@ func (controller *AppointmentController) GetAppointment(c *fiber.Ctx) error {
 // @Tags        	meeting Appointment
 // @Id					 ApiV1MeetingAppAppointmentWithID
 // @Success      200  {array}  api_structure.Appointment
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Appointment/with-id/:id [get]
 func (controller *AppointmentController) GetAppointmentById(c *fiber.Ctx) error {
 
@@ -158,9 +152,7 @@ func (controller *AppointmentController) GetAppointmentById(c *fiber.Ctx) error 
 // @Param id path string false "id uuid"
 // @Param request body api_structure.AppointmentEdit true "update params"
 // @Success      200  {object}  api_structure.Appointment
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Appointment/with-id/:id [put]
 func (controller *AppointmentController) UpdateAppointment(c *fiber.Ctx) error {
 
@@ -202,9 +194,7 @@ func (controller *AppointmentController) UpdateAppointment(c *fiber.Ctx) error {
 // @Param id path string false "id uuid"
 // @Param request body api_structure.AppointmentEdit true "update params"
 // @Success      200  {array}  api_structure.Appointment
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Appointment/multiple [put]
 func (controller *AppointmentController) UpdateAppointmentMultiple(c *fiber.Ctx) error {
 	editData := []api_structure.AppointmentEdit{}
@@ -237,9 +227,7 @@ func (controller *AppointmentController) UpdateAppointmentMultiple(c *fiber.Ctx)
 // @Param id path string false "id uuid"
 // @Param request body api_structure.AppointmentFilter true "update params"
 // @Success      200  {object}  api_structure.Appointment
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Appointment/single [post]
 func (controller *AppointmentController) CreateAppointment(c *fiber.Ctx) error {
 	data := api_structure.AppointmentForm{}
@@ -270,9 +258,7 @@ func (controller *AppointmentController) CreateAppointment(c *fiber.Ctx) error {
 // @Param id path string false "id uuid"
 // @Param request body api_structure.AppointmentFilter true "update params"
 // @Success      200  {array}  api_structure.Appointment
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Appointment/multiple [post]
 func (controller *AppointmentController) CreateAppointmentMultiple(c *fiber.Ctx) error {
 
@@ -303,9 +289,7 @@ func (controller *AppointmentController) CreateAppointmentMultiple(c *fiber.Ctx)
 // @Produce      json
 // @Param id path string false "id uuid"
 // @Success      200  {string}  string
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Appointment/with-id/:id [delete]
 func (controller *AppointmentController) DeleteAppointment(c *fiber.Ctx) error {
 	id := c.Params("id")

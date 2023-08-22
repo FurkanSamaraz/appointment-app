@@ -1,0 +1,1121 @@
+basePath: /api/v1
+consumes:
+- application/json
+definitions:
+  api_structures.Appointment:
+    properties:
+      appointmentDate:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      createdAt:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      customerID:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      deletedAt:
+        example: "1989-07-30T10:05:53Z"
+        type: string
+      id:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      purpose:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      updatedAt:
+        example: "1986-08-02T22:27:19Z"
+        type: string
+    type: object
+  api_structures.AppointmentEdit:
+    properties:
+      appointmentDate:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      createdAt:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      customerID:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      deletedAt:
+        example: "1989-07-30T10:05:53Z"
+        type: string
+      id:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      purpose:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      updatedAt:
+        example: "1986-08-02T22:27:19Z"
+        type: string
+    type: object
+  api_structures.AppointmentFilter:
+    properties:
+      appointmentDate:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      createdAt:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      customerID:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      deletedAt:
+        example: "1989-07-30T10:05:53Z"
+        type: string
+      id:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      purpose:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      updatedAt:
+        example: "1986-08-02T22:27:19Z"
+        type: string
+    type: object
+  api_structures.Customer:
+    properties:
+      createdAt:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      deletedAt:
+        example: "1989-07-30T10:05:53Z"
+        type: string
+      email:
+        example: Saepe excepturi.
+        type: string
+      firstName:
+        example: Neque magni.
+        type: string
+      id:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      lastName:
+        example: Dignissimos rerum.
+        type: string
+      phoneNumber:
+        example: Sunt autem.
+        type: string
+      updatedAt:
+        example: "1986-08-02T22:27:19Z"
+        type: string
+    type: object
+  api_structures.CustomerEdit:
+    properties:
+      createdAt:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      deletedAt:
+        example: "1989-07-30T10:05:53Z"
+        type: string
+      email:
+        example: Saepe excepturi.
+        type: string
+      firstName:
+        example: Neque magni.
+        type: string
+      id:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      lastName:
+        example: Dignissimos rerum.
+        type: string
+      phoneNumber:
+        example: Sunt autem.
+        type: string
+      updatedAt:
+        example: "1986-08-02T22:27:19Z"
+        type: string
+    type: object
+  api_structures.CustomerFilter:
+    properties:
+      createdAt:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      deletedAt:
+        example: "1989-07-30T10:05:53Z"
+        type: string
+      email:
+        example: Saepe excepturi.
+        type: string
+      firstName:
+        example: Neque magni.
+        type: string
+      id:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      lastName:
+        example: Dignissimos rerum.
+        type: string
+      phoneNumber:
+        example: Sunt autem.
+        type: string
+      updatedAt:
+        example: "1986-08-02T22:27:19Z"
+        type: string
+    type: object
+  api_structures.CustomerServiceHistory:
+    properties:
+      appointmentId:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      createdAt:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      customerId:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      deletedAt:
+        example: "1989-07-30T10:05:53Z"
+        type: string
+      id:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      notes:
+        example: Quisquam voluptatem.
+        type: string
+      serviceDate:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      serviceId:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      updatedAt:
+        example: "1986-08-02T22:27:19Z"
+        type: string
+    type: object
+  api_structures.CustomerServiceHistoryEdit:
+    properties:
+      appointmentId:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      createdAt:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      customerId:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      deletedAt:
+        example: "1989-07-30T10:05:53Z"
+        type: string
+      id:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      notes:
+        example: Quisquam voluptatem.
+        type: string
+      serviceDate:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      serviceId:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      updatedAt:
+        example: "1986-08-02T22:27:19Z"
+        type: string
+    type: object
+  api_structures.CustomerServiceHistoryFilter:
+    properties:
+      appointmentId:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      createdAt:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      customerId:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      deletedAt:
+        example: "1989-07-30T10:05:53Z"
+        type: string
+      id:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      notes:
+        example: Quisquam voluptatem.
+        type: string
+      serviceDate:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      serviceId:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      updatedAt:
+        example: "1986-08-02T22:27:19Z"
+        type: string
+    type: object
+  api_structures.Service:
+    properties:
+      createdAt:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      deletedAt:
+        example: "1989-07-30T10:05:53Z"
+        type: string
+      description:
+        type: string
+      id:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      price:
+        type: number
+      serviceName:
+        type: string
+      updatedAt:
+        example: "1986-08-02T22:27:19Z"
+        type: string
+    required:
+    - description
+    - price
+    - serviceName
+    type: object
+  api_structures.ServiceEdit:
+    properties:
+      createdAt:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      deletedAt:
+        example: "1989-07-30T10:05:53Z"
+        type: string
+      description:
+        type: string
+      id:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      price:
+        type: number
+      serviceName:
+        type: string
+      updatedAt:
+        example: "1986-08-02T22:27:19Z"
+        type: string
+    type: object
+  api_structures.ServiceFilter:
+    properties:
+      createdAt:
+        example: "1960-11-10T04:48:09Z"
+        type: string
+      deletedAt:
+        example: "1989-07-30T10:05:53Z"
+        type: string
+      description:
+        type: string
+      id:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
+      price:
+        type: number
+      serviceName:
+        type: string
+      updatedAt:
+        example: "1986-08-02T22:27:19Z"
+        type: string
+    type: object
+info:
+  contact: {}
+  title: Meetin APP API
+  version: "1.0"
+paths:
+  /meeting/Appointment/multiple:
+    post:
+      description: Create Multiple in CreateAppointment
+      operationId: ApiV1MeetingAppAppointmentCreateMultiple
+      parameters:
+      - default: '[[authToken]]'
+        description: Current Session Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - default: '[[companyID]]'
+        description: Current CompanyID
+        in: header
+        name: x-company
+        required: true
+        type: string
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.AppointmentFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Appointment'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create Multiple in Appointment
+      tags:
+      - meeting Appointment
+    put:
+      description: Update Multiple in UpdateAppointment
+      operationId: ApiV1MeetingAppAppointmentsUpdateMultiple
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.AppointmentEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Appointment'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update Multiple in Appointment
+      tags:
+      - meeting Appointment
+  /meeting/Appointment/pagination:
+    get:
+      description: Pagination GetAppointmentWithPagination
+      operationId: ApiV1MeetingAppAppointmentPagination
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Appointment'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Pagination Appointment
+      tags:
+      - meeting Appointment
+  /meeting/Appointment/search:
+    get:
+      description: Get GetAppointment
+      operationId: ApiV1MeetingAppAppointmentSearch
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Appointment'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Show Appointment
+      tags:
+      - meeting Appointment
+  /meeting/Appointment/single:
+    post:
+      description: Create in CreateAppointment
+      operationId: ApiV1MeetingAppAppointmentCreate
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.AppointmentFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.Appointment'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create in Appointment
+      tags:
+      - meeting Appointment
+  /meeting/Appointment/with-id/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete with path params in DeleteAppointment
+      operationId: ApiV1MeetingAppAppointmentDelete
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Delete with path params in Appointment
+      tags:
+      - meeting Appointment
+    get:
+      description: Get GetAppointmentById
+      operationId: ApiV1MeetingAppAppointmentWithID
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Appointment'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Get Appointment by Unique IDs
+      tags:
+      - meeting Appointment
+    put:
+      description: Update with id in UpdateAppointment
+      operationId: ApiV1MeetingAppAppointmentUpdateWithID
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.AppointmentEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.Appointment'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update with id in Appointment
+      tags:
+      - meeting Appointment
+  /meeting/Customer/multiple:
+    post:
+      description: Create Multiple in CreateCustomer
+      operationId: ApiV1MeetingAppCustomerCreateMultiple
+      parameters:
+      - default: '[[authToken]]'
+        description: Current Session Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - default: '[[companyID]]'
+        description: Current CompanyID
+        in: header
+        name: x-company
+        required: true
+        type: string
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Customer'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create Multiple in Customer
+      tags:
+      - meeting Customer
+    put:
+      description: Update Multiple in UpdateCustomer
+      operationId: ApiV1MeetingAppCustomersUpdateMultiple
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Customer'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update Multiple in Customer
+      tags:
+      - meeting Customer
+  /meeting/Customer/pagination:
+    get:
+      description: Pagination GetCustomerWithPagination
+      operationId: ApiV1MeetingAppCustomerPagination
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Customer'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Pagination Customer
+      tags:
+      - meeting Customer
+  /meeting/Customer/search:
+    get:
+      description: Get GetCustomer
+      operationId: ApiV1MeetingAppCustomerSearch
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Customer'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Show Customer
+      tags:
+      - meeting Customer
+  /meeting/Customer/single:
+    post:
+      description: Create in CreateCustomer
+      operationId: ApiV1MeetingAppCustomerCreate
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.Customer'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create in Customer
+      tags:
+      - meeting Customer
+  /meeting/Customer/with-id/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete with path params in DeleteCustomer
+      operationId: ApiV1MeetingAppCustomerDelete
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Delete with path params in Customer
+      tags:
+      - meeting Customer
+    get:
+      description: Get GetCustomerById
+      operationId: ApiV1MeetingAppCustomerWithID
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Customer'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Get Customer by Unique IDs
+      tags:
+      - meeting Customer
+    put:
+      description: Update with id in UpdateCustomer
+      operationId: ApiV1MeetingAppCustomerUpdateWithID
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.Customer'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update with id in Customer
+      tags:
+      - meeting Customer
+  /meeting/CustomerServiceHistory/multiple:
+    post:
+      description: Create Multiple in CreateCustomerServiceHistory
+      operationId: ApiV1MeetingAppCustomerServiceHistoryCreateMultiple
+      parameters:
+      - default: '[[authToken]]'
+        description: Current Session Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - default: '[[companyID]]'
+        description: Current CompanyID
+        in: header
+        name: x-company
+        required: true
+        type: string
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerServiceHistoryFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.CustomerServiceHistory'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create Multiple in CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+    put:
+      description: Update Multiple in UpdateCustomerServiceHistory
+      operationId: ApiV1MeetingAppCustomerServiceHistorysUpdateMultiple
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerServiceHistoryEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.CustomerServiceHistory'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update Multiple in CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+  /meeting/CustomerServiceHistory/pagination:
+    get:
+      description: Pagination GetCustomerServiceHistoryWithPagination
+      operationId: ApiV1MeetingAppCustomerServiceHistoryPagination
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.CustomerServiceHistory'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Pagination CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+  /meeting/CustomerServiceHistory/search:
+    get:
+      description: Get GetCustomerServiceHistory
+      operationId: ApiV1MeetingAppCustomerServiceHistorySearch
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.CustomerServiceHistory'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Show CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+  /meeting/CustomerServiceHistory/single:
+    post:
+      description: Create in CreateCustomerServiceHistory
+      operationId: ApiV1MeetingAppCustomerServiceHistoryCreate
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerServiceHistoryFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.CustomerServiceHistory'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create in CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+  /meeting/CustomerServiceHistory/with-id/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete with path params in DeleteCustomerServiceHistory
+      operationId: ApiV1MeetingAppCustomerServiceHistoryDelete
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Delete with path params in CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+    get:
+      description: Get GetCustomerServiceHistoryById
+      operationId: ApiV1MeetingAppCustomerServiceHistoryWithID
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.CustomerServiceHistory'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Get CustomerServiceHistory by Unique IDs
+      tags:
+      - meeting CustomerServiceHistory
+    put:
+      description: Update with id in UpdateCustomerServiceHistory
+      operationId: ApiV1MeetingAppCustomerServiceHistoryUpdateWithID
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerServiceHistoryEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.CustomerServiceHistory'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update with id in CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+  /meeting/Service/multiple:
+    post:
+      description: Create Multiple in CreateService
+      operationId: ApiV1MettingAppServiceCreateMultiple
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.ServiceFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Service'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create Multiple in Service
+      tags:
+      - meeting Service
+    put:
+      description: Update Multiple in UpdateService
+      operationId: ApiV1MettingAppServicesUpdateMultiple
+      parameters:
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.ServiceEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Service'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update Multiple in Service
+      tags:
+      - meeting Service
+  /meeting/Service/pagination:
+    get:
+      description: Pagination GetServiceWithPagination
+      operationId: ApiV1MettingAppServicePagination
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Service'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Pagination Service
+      tags:
+      - meeting Service
+  /meeting/Service/search:
+    get:
+      description: Get GetService
+      operationId: ApiV1MettingAppServiceSearch
+      parameters:
+      - default: 1
+        description: "1"
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: "10"
+        in: query
+        name: size
+        type: integer
+      - default: integrationId
+        description: -id,name
+        in: query
+        name: sort
+        type: string
+      - default: '[]'
+        description: '[[col,eq,1],[col,eq,2],(missing and rule)[[col,eq,1],and|or,[col,eq,2]]]'
+        in: query
+        name: filters
+        type: string
+      - default: Service,Service
+        description: Service,Service
+        in: query
+        name: preload
+        type: string
+      - default: Service,Service
+        description: Service,Service
+        in: query
+        name: joins
+        type: string
+      - default: integrationId,name,createdBy,createdAt,updatedAt,deletedAt
+        description: integrationId,name,createdBy,createdAt,updatedAt,deletedAt
+        in: query
+        name: fields
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Service'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Show Service
+      tags:
+      - meeting Service
+  /meeting/Service/single:
+    post:
+      description: Create in CreateService
+      operationId: ApiV1MettingAppServiceCreate
+      parameters:
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.ServiceFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.Service'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create in Service
+      tags:
+      - meeting Service
+  /meeting/Service/with-id/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete with path params in DeleteService
+      operationId: ApiV1MettingAppServiceDelete
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Delete with path params in Service
+      tags:
+      - meeting Service
+    get:
+      description: Get GetServiceById
+      operationId: ApiV1MettingAppServiceWithID
+      parameters:
+      - default: Service,Service
+        description: Service,Service
+        in: query
+        name: preload
+        type: string
+      - default: Service,Service
+        description: Service,Service
+        in: query
+        name: joins
+        type: string
+      - default: integrationId,name,createdBy,createdAt,updatedAt,deletedAt
+        description: integrationId,name,createdBy,createdAt,updatedAt,deletedAt
+        in: query
+        name: fields
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Service'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Get Service by Unique IDs
+      tags:
+      - meeting Service
+    put:
+      description: Update with id in UpdateService
+      operationId: ApiV1MettingAppServiceUpdateWithID
+      parameters:
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.ServiceEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.Service'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update with id in Service
+      tags:
+      - meeting Service
+produces:
+- application/json
+schemes:
+- http
+- https
+swagger: "2.0"

@@ -31,9 +31,7 @@ type PaginationCustomer struct {
 // @Tags        	meeting Customer
 // @Id					 ApiV1MeetingAppCustomerPagination
 // @Success      200  {array}  api_structure.Customer
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object}  ResponseObject
-// @Failure      500  {object}  ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Customer/pagination [get]
 func (controller *CustomerController) GetCustomerWithPagination(c *fiber.Ctx) error {
 	var customers []api_structure.CustomerFilter
@@ -101,9 +99,7 @@ func (controller *CustomerController) GetCustomerWithPagination(c *fiber.Ctx) er
 // @Tags        	meeting Customer
 // @Id					 ApiV1MeetingAppCustomerSearch
 // @Success      200  {array}  api_structure.Customer
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Customer/search [get]
 func (controller *CustomerController) GetCustomer(c *fiber.Ctx) error {
 	var Customer_table_name api_structure.CustomerFilter
@@ -124,9 +120,7 @@ func (controller *CustomerController) GetCustomer(c *fiber.Ctx) error {
 // @Tags        	meeting Customer
 // @Id					 ApiV1MeetingAppCustomerWithID
 // @Success      200  {array}  api_structure.Customer
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Customer/with-id/:id [get]
 func (controller *CustomerController) GetCustomerById(c *fiber.Ctx) error {
 
@@ -156,9 +150,7 @@ func (controller *CustomerController) GetCustomerById(c *fiber.Ctx) error {
 // @Param id path string false "id uuid"
 // @Param request body api_structure.CustomerEdit true "update params"
 // @Success      200  {object}  api_structure.Customer
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Customer/with-id/:id [put]
 func (controller *CustomerController) UpdateCustomer(c *fiber.Ctx) error {
 
@@ -200,9 +192,7 @@ func (controller *CustomerController) UpdateCustomer(c *fiber.Ctx) error {
 // @Param id path string false "id uuid"
 // @Param request body api_structure.CustomerEdit true "update params"
 // @Success      200  {array}  api_structure.Customer
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Customer/multiple [put]
 func (controller *CustomerController) UpdateCustomerMultiple(c *fiber.Ctx) error {
 	editData := []api_structure.CustomerEdit{}
@@ -235,9 +225,7 @@ func (controller *CustomerController) UpdateCustomerMultiple(c *fiber.Ctx) error
 // @Param id path string false "id uuid"
 // @Param request body api_structure.CustomerFilter true "update params"
 // @Success      200  {object}  api_structure.Customer
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Customer/single [post]
 func (controller *CustomerController) CreateCustomer(c *fiber.Ctx) error {
 	data := api_structure.CustomerForm{}
@@ -268,9 +256,7 @@ func (controller *CustomerController) CreateCustomer(c *fiber.Ctx) error {
 // @Param id path string false "id uuid"
 // @Param request body api_structure.CustomerFilter true "update params"
 // @Success      200  {array}  api_structure.Customer
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Customer/multiple [post]
 func (controller *CustomerController) CreateCustomerMultiple(c *fiber.Ctx) error {
 
@@ -301,9 +287,7 @@ func (controller *CustomerController) CreateCustomerMultiple(c *fiber.Ctx) error
 // @Produce      json
 // @Param id path string false "id uuid"
 // @Success      200  {string}  string
-// @Failure      400  {object}  ResponseObject
-// @Failure      404  {object} ResponseObject
-// @Failure      500  {object} ResponseObject
+// @Failure      400  {object}  error
 // @Router       /meeting/Customer/with-id/:id [delete]
 func (controller *CustomerController) DeleteCustomer(c *fiber.Ctx) error {
 	id := c.Params("id")
