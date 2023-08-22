@@ -60,4 +60,5 @@ type CustomerFilter struct {
 
 func (p *CustomerFilter) TableName() string {
 	return "public.customer"
+
 }
