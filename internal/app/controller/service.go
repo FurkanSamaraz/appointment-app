@@ -32,7 +32,7 @@ type PaginationResponse struct {
 // @Id					 ApiV1MettingAppServicePagination
 // @Success      200  {array}  api_structure.Service
 // @Failure      400  {object}  error
-// @Router       /meeting/Service/pagination [get]
+// @Router       /api/v1/Service/pagination [get]
 func (controller *ServiceController) GetServiceWithPagination(c *fiber.Ctx) error {
 	var Services []api_structure.ServiceFilter
 	db := controller.Svc.DB.Table("public.service")
@@ -107,7 +107,7 @@ func (controller *ServiceController) GetServiceWithPagination(c *fiber.Ctx) erro
 // @Param fields query string false "integrationId,name,createdBy,createdAt,updatedAt,deletedAt" default(integrationId,name,createdBy,createdAt,updatedAt,deletedAt)
 // @Success      200  {array}  api_structure.Service
 // @Failure      400  {object}  error
-// @Router       /meeting/Service/search [get]
+// @Router       /api/v1/Service/search [get]
 func (controller *ServiceController) GetService(c *fiber.Ctx) error {
 	var Service_table_name api_structure.ServiceFilter
 
@@ -131,7 +131,7 @@ func (controller *ServiceController) GetService(c *fiber.Ctx) error {
 // @Param fields query string false "integrationId,name,createdBy,createdAt,updatedAt,deletedAt" default(integrationId,name,createdBy,createdAt,updatedAt,deletedAt)
 // @Success      200  {array}  api_structure.Service
 // @Failure      400  {object}  error
-// @Router       /meeting/Service/with-id/:id [get]
+// @Router       /api/v1/Service/with-id/:id [get]
 func (controller *ServiceController) GetServiceById(c *fiber.Ctx) error {
 
 	id := c.Params("id")
@@ -160,7 +160,7 @@ func (controller *ServiceController) GetServiceById(c *fiber.Ctx) error {
 // @Param request body api_structure.ServiceEdit true "update params"
 // @Success      200  {object}  api_structure.Service
 // @Failure      400  {object}  error
-// @Router       /meeting/Service/with-id/:id [put]
+// @Router       /api/v1/Service/with-id/:id [put]
 func (controller *ServiceController) UpdateService(c *fiber.Ctx) error {
 
 	id := c.Params("id")
@@ -201,7 +201,7 @@ func (controller *ServiceController) UpdateService(c *fiber.Ctx) error {
 // @Param request body api_structure.ServiceEdit true "update params"
 // @Success      200  {array}  api_structure.Service
 // @Failure      400  {object}  error
-// @Router       /meeting/Service/multiple [put]
+// @Router       /api/v1/Service/multiple [put]
 func (controller *ServiceController) UpdateServiceMultiple(c *fiber.Ctx) error {
 	editData := []api_structure.ServiceEdit{}
 	if err := c.BodyParser(&editData); err != nil {
@@ -233,7 +233,7 @@ func (controller *ServiceController) UpdateServiceMultiple(c *fiber.Ctx) error {
 // @Param request body api_structure.ServiceFilter true "update params"
 // @Success      200  {object}  api_structure.Service
 // @Failure      400  {object}  error
-// @Router       /meeting/Service/single [post]
+// @Router       /api/v1/Service/single [post]
 func (controller *ServiceController) CreateService(c *fiber.Ctx) error {
 	data := api_structure.ServiceForm{}
 	if err := c.BodyParser(&data); err != nil {
@@ -262,7 +262,7 @@ func (controller *ServiceController) CreateService(c *fiber.Ctx) error {
 // @Param request body api_structure.ServiceFilter true "update params"
 // @Success      200  {array}  api_structure.Service
 // @Failure      400  {object}  error
-// @Router       /meeting/Service/multiple [post]
+// @Router       /api/v1/Service/multiple [post]
 func (controller *ServiceController) CreateServiceMultiple(c *fiber.Ctx) error {
 
 	bulkData := []api_structure.ServiceForm{}
@@ -293,7 +293,7 @@ func (controller *ServiceController) CreateServiceMultiple(c *fiber.Ctx) error {
 // @Param id path string false "id uuid"
 // @Success      200  {string}  string
 // @Failure      400  {object}  error
-// @Router       /meeting/Service/with-id/:id [delete]
+// @Router       /api/v1/Service/with-id/:id [delete]
 func (controller *ServiceController) DeleteService(c *fiber.Ctx) error {
 	id := c.Params("id")
 

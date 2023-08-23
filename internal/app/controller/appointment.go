@@ -34,7 +34,7 @@ type PaginationAppointment struct {
 // @Id					 ApiV1MeetingAppAppointmentPagination
 // @Success      200  {array}  api_structure.Appointment
 // @Failure      400  {object}  error
-// @Router       /meeting/Appointment/pagination [get]
+// @Router       /api/v1/Appointment/pagination [get]
 func (controller *AppointmentController) GetAppointmentWithPagination(c *fiber.Ctx) error {
 	var Appointments []api_structure.AppointmentFilter
 	db := controller.Svc.DB.Table("public.appointment")
@@ -102,7 +102,7 @@ func (controller *AppointmentController) GetAppointmentWithPagination(c *fiber.C
 // @Id					 ApiV1MeetingAppAppointmentSearch
 // @Success      200  {array}  api_structure.Appointment
 // @Failure      400  {object}  error
-// @Router       /meeting/Appointment/search [get]
+// @Router       /api/v1/Appointment/search [get]
 func (controller *AppointmentController) GetAppointment(c *fiber.Ctx) error {
 	var Appointment_table_name api_structure.AppointmentFilter
 
@@ -123,7 +123,7 @@ func (controller *AppointmentController) GetAppointment(c *fiber.Ctx) error {
 // @Id					 ApiV1MeetingAppAppointmentWithID
 // @Success      200  {array}  api_structure.Appointment
 // @Failure      400  {object}  error
-// @Router       /meeting/Appointment/with-id/:id [get]
+// @Router       /api/v1/Appointment/with-id/:id [get]
 func (controller *AppointmentController) GetAppointmentById(c *fiber.Ctx) error {
 
 	id := c.Params("id")
@@ -153,7 +153,7 @@ func (controller *AppointmentController) GetAppointmentById(c *fiber.Ctx) error 
 // @Param request body api_structure.AppointmentEdit true "update params"
 // @Success      200  {object}  api_structure.Appointment
 // @Failure      400  {object}  error
-// @Router       /meeting/Appointment/with-id/:id [put]
+// @Router       /api/v1/Appointment/with-id/:id [put]
 func (controller *AppointmentController) UpdateAppointment(c *fiber.Ctx) error {
 
 	id := c.Params("id")
@@ -195,7 +195,7 @@ func (controller *AppointmentController) UpdateAppointment(c *fiber.Ctx) error {
 // @Param request body api_structure.AppointmentEdit true "update params"
 // @Success      200  {array}  api_structure.Appointment
 // @Failure      400  {object}  error
-// @Router       /meeting/Appointment/multiple [put]
+// @Router       /api/v1/Appointment/multiple [put]
 func (controller *AppointmentController) UpdateAppointmentMultiple(c *fiber.Ctx) error {
 	editData := []api_structure.AppointmentEdit{}
 	if err := c.BodyParser(&editData); err != nil {
@@ -228,7 +228,7 @@ func (controller *AppointmentController) UpdateAppointmentMultiple(c *fiber.Ctx)
 // @Param request body api_structure.AppointmentFilter true "update params"
 // @Success      200  {object}  api_structure.Appointment
 // @Failure      400  {object}  error
-// @Router       /meeting/Appointment/single [post]
+// @Router       /api/v1/Appointment/single [post]
 func (controller *AppointmentController) CreateAppointment(c *fiber.Ctx) error {
 	data := api_structure.AppointmentForm{}
 	if err := c.BodyParser(&data); err != nil {
@@ -259,7 +259,7 @@ func (controller *AppointmentController) CreateAppointment(c *fiber.Ctx) error {
 // @Param request body api_structure.AppointmentFilter true "update params"
 // @Success      200  {array}  api_structure.Appointment
 // @Failure      400  {object}  error
-// @Router       /meeting/Appointment/multiple [post]
+// @Router       /api/v1/Appointment/multiple [post]
 func (controller *AppointmentController) CreateAppointmentMultiple(c *fiber.Ctx) error {
 
 	bulkData := []api_structure.AppointmentForm{}
@@ -290,7 +290,7 @@ func (controller *AppointmentController) CreateAppointmentMultiple(c *fiber.Ctx)
 // @Param id path string false "id uuid"
 // @Success      200  {string}  string
 // @Failure      400  {object}  error
-// @Router       /meeting/Appointment/with-id/:id [delete]
+// @Router       /api/v1/Appointment/with-id/:id [delete]
 func (controller *AppointmentController) DeleteAppointment(c *fiber.Ctx) error {
 	id := c.Params("id")
 	idTrue, err := runtime_tools.Decrypt(id)

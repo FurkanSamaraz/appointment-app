@@ -34,7 +34,7 @@ type PaginationCustomerServiceHistory struct {
 // @Id					 ApiV1MeetingAppCustomerServiceHistoryPagination
 // @Success      200  {array}  api_structure.CustomerServiceHistory
 // @Failure      400  {object}  error
-// @Router       /meeting/CustomerServiceHistory/pagination [get]
+// @Router       /api/v1/CustomerServiceHistory/pagination [get]
 func (controller *CustomerServiceHistoryController) GetCustomerServiceHistoryWithPagination(c *fiber.Ctx) error {
 	var CustomerServiceHistorys []api_structure.CustomerServiceHistoryFilter
 	db := controller.Svc.DB.Table("public.customer_service_history")
@@ -102,7 +102,7 @@ func (controller *CustomerServiceHistoryController) GetCustomerServiceHistoryWit
 // @Id					 ApiV1MeetingAppCustomerServiceHistorySearch
 // @Success      200  {array}  api_structure.CustomerServiceHistory
 // @Failure      400  {object}  error
-// @Router       /meeting/CustomerServiceHistory/search [get]
+// @Router       /api/v1/CustomerServiceHistory/search [get]
 func (controller *CustomerServiceHistoryController) GetCustomerServiceHistory(c *fiber.Ctx) error {
 	var CustomerServiceHistory_table_name api_structure.CustomerServiceHistoryFilter
 
@@ -123,7 +123,7 @@ func (controller *CustomerServiceHistoryController) GetCustomerServiceHistory(c 
 // @Id					 ApiV1MeetingAppCustomerServiceHistoryWithID
 // @Success      200  {array}  api_structure.CustomerServiceHistory
 // @Failure      400  {object}  error
-// @Router       /meeting/CustomerServiceHistory/with-id/:id [get]
+// @Router       /api/v1/CustomerServiceHistory/with-id/:id [get]
 func (controller *CustomerServiceHistoryController) GetCustomerServiceHistoryById(c *fiber.Ctx) error {
 
 	id := c.Params("id")
@@ -153,7 +153,7 @@ func (controller *CustomerServiceHistoryController) GetCustomerServiceHistoryByI
 // @Param request body api_structure.CustomerServiceHistoryEdit true "update params"
 // @Success      200  {object}  api_structure.CustomerServiceHistory
 // @Failure      400  {object}  error
-// @Router       /meeting/CustomerServiceHistory/with-id/:id [put]
+// @Router       /api/v1/CustomerServiceHistory/with-id/:id [put]
 func (controller *CustomerServiceHistoryController) UpdateCustomerServiceHistory(c *fiber.Ctx) error {
 
 	id := c.Params("id")
@@ -195,7 +195,7 @@ func (controller *CustomerServiceHistoryController) UpdateCustomerServiceHistory
 // @Param request body api_structure.CustomerServiceHistoryEdit true "update params"
 // @Success      200  {array}  api_structure.CustomerServiceHistory
 // @Failure      400  {object}  error
-// @Router       /meeting/CustomerServiceHistory/multiple [put]
+// @Router       /api/v1/CustomerServiceHistory/multiple [put]
 func (controller *CustomerServiceHistoryController) UpdateCustomerServiceHistoryMultiple(c *fiber.Ctx) error {
 	editData := []api_structure.CustomerServiceHistoryEdit{}
 	if err := c.BodyParser(&editData); err != nil {
@@ -228,7 +228,7 @@ func (controller *CustomerServiceHistoryController) UpdateCustomerServiceHistory
 // @Param request body api_structure.CustomerServiceHistoryFilter true "update params"
 // @Success      200  {object}  api_structure.CustomerServiceHistory
 // @Failure      400  {object}  error
-// @Router       /meeting/CustomerServiceHistory/single [post]
+// @Router       /api/v1/CustomerServiceHistory/single [post]
 func (controller *CustomerServiceHistoryController) CreateCustomerServiceHistory(c *fiber.Ctx) error {
 	data := api_structure.CustomerServiceHistoryForm{}
 	if err := c.BodyParser(&data); err != nil {
@@ -259,7 +259,7 @@ func (controller *CustomerServiceHistoryController) CreateCustomerServiceHistory
 // @Param request body api_structure.CustomerServiceHistoryFilter true "update params"
 // @Success      200  {array}  api_structure.CustomerServiceHistory
 // @Failure      400  {object}  error
-// @Router       /meeting/CustomerServiceHistory/multiple [post]
+// @Router       /api/v1/CustomerServiceHistory/multiple [post]
 func (controller *CustomerServiceHistoryController) CreateCustomerServiceHistoryMultiple(c *fiber.Ctx) error {
 
 	bulkData := []api_structure.CustomerServiceHistoryForm{}
@@ -290,7 +290,7 @@ func (controller *CustomerServiceHistoryController) CreateCustomerServiceHistory
 // @Param id path string false "id uuid"
 // @Success      200  {string}  string
 // @Failure      400  {object}  error
-// @Router       /meeting/CustomerServiceHistory/with-id/:id [delete]
+// @Router       /api/v1/CustomerServiceHistory/with-id/:id [delete]
 func (controller *CustomerServiceHistoryController) DeleteCustomerServiceHistory(c *fiber.Ctx) error {
 	id := c.Params("id")
 	idTrue, err := runtime_tools.Decrypt(id)
