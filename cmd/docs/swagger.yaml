@@ -1,4 +1,4 @@
-basePath: /api/v1
+basePath: /
 consumes:
 - application/json
 definitions:
@@ -317,7 +317,7 @@ info:
   title: Meetin APP API
   version: "1.0"
 paths:
-  /meeting/Appointment/multiple:
+  /api/v1/Appointment/multiple:
     post:
       description: Create Multiple in CreateAppointment
       operationId: ApiV1MeetingAppAppointmentCreateMultiple
@@ -384,7 +384,7 @@ paths:
       summary: Update Multiple in Appointment
       tags:
       - meeting Appointment
-  /meeting/Appointment/pagination:
+  /api/v1/Appointment/pagination:
     get:
       description: Pagination GetAppointmentWithPagination
       operationId: ApiV1MeetingAppAppointmentPagination
@@ -401,7 +401,7 @@ paths:
       summary: Pagination Appointment
       tags:
       - meeting Appointment
-  /meeting/Appointment/search:
+  /api/v1/Appointment/search:
     get:
       description: Get GetAppointment
       operationId: ApiV1MeetingAppAppointmentSearch
@@ -418,7 +418,7 @@ paths:
       summary: Show Appointment
       tags:
       - meeting Appointment
-  /meeting/Appointment/single:
+  /api/v1/Appointment/single:
     post:
       description: Create in CreateAppointment
       operationId: ApiV1MeetingAppAppointmentCreate
@@ -444,7 +444,7 @@ paths:
       summary: Create in Appointment
       tags:
       - meeting Appointment
-  /meeting/Appointment/with-id/:id:
+  /api/v1/Appointment/with-id/:id:
     delete:
       consumes:
       - application/json
@@ -509,6 +509,418 @@ paths:
       summary: Update with id in Appointment
       tags:
       - meeting Appointment
+  /api/v1/CustomerServiceHistory/multiple:
+    post:
+      description: Create Multiple in CreateCustomerServiceHistory
+      operationId: ApiV1MeetingAppCustomerServiceHistoryCreateMultiple
+      parameters:
+      - default: '[[authToken]]'
+        description: Current Session Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - default: '[[companyID]]'
+        description: Current CompanyID
+        in: header
+        name: x-company
+        required: true
+        type: string
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerServiceHistoryFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.CustomerServiceHistory'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create Multiple in CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+    put:
+      description: Update Multiple in UpdateCustomerServiceHistory
+      operationId: ApiV1MeetingAppCustomerServiceHistorysUpdateMultiple
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerServiceHistoryEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.CustomerServiceHistory'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update Multiple in CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+  /api/v1/CustomerServiceHistory/pagination:
+    get:
+      description: Pagination GetCustomerServiceHistoryWithPagination
+      operationId: ApiV1MeetingAppCustomerServiceHistoryPagination
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.CustomerServiceHistory'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Pagination CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+  /api/v1/CustomerServiceHistory/search:
+    get:
+      description: Get GetCustomerServiceHistory
+      operationId: ApiV1MeetingAppCustomerServiceHistorySearch
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.CustomerServiceHistory'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Show CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+  /api/v1/CustomerServiceHistory/single:
+    post:
+      description: Create in CreateCustomerServiceHistory
+      operationId: ApiV1MeetingAppCustomerServiceHistoryCreate
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerServiceHistoryFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.CustomerServiceHistory'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create in CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+  /api/v1/CustomerServiceHistory/with-id/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete with path params in DeleteCustomerServiceHistory
+      operationId: ApiV1MeetingAppCustomerServiceHistoryDelete
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Delete with path params in CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+    get:
+      description: Get GetCustomerServiceHistoryById
+      operationId: ApiV1MeetingAppCustomerServiceHistoryWithID
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.CustomerServiceHistory'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Get CustomerServiceHistory by Unique IDs
+      tags:
+      - meeting CustomerServiceHistory
+    put:
+      description: Update with id in UpdateCustomerServiceHistory
+      operationId: ApiV1MeetingAppCustomerServiceHistoryUpdateWithID
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerServiceHistoryEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.CustomerServiceHistory'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update with id in CustomerServiceHistory
+      tags:
+      - meeting CustomerServiceHistory
+  /api/v1/Service/multiple:
+    post:
+      description: Create Multiple in CreateService
+      operationId: ApiV1MettingAppServiceCreateMultiple
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.ServiceFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Service'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create Multiple in Service
+      tags:
+      - meeting Service
+    put:
+      description: Update Multiple in UpdateService
+      operationId: ApiV1MettingAppServicesUpdateMultiple
+      parameters:
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.ServiceEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Service'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update Multiple in Service
+      tags:
+      - meeting Service
+  /api/v1/Service/pagination:
+    get:
+      description: Pagination GetServiceWithPagination
+      operationId: ApiV1MettingAppServicePagination
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Service'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Pagination Service
+      tags:
+      - meeting Service
+  /api/v1/Service/search:
+    get:
+      description: Get GetService
+      operationId: ApiV1MettingAppServiceSearch
+      parameters:
+      - default: 1
+        description: "1"
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: "10"
+        in: query
+        name: size
+        type: integer
+      - default: integrationId
+        description: -id,name
+        in: query
+        name: sort
+        type: string
+      - default: '[]'
+        description: '[[col,eq,1],[col,eq,2],(missing and rule)[[col,eq,1],and|or,[col,eq,2]]]'
+        in: query
+        name: filters
+        type: string
+      - default: Service,Service
+        description: Service,Service
+        in: query
+        name: preload
+        type: string
+      - default: Service,Service
+        description: Service,Service
+        in: query
+        name: joins
+        type: string
+      - default: integrationId,name,createdBy,createdAt,updatedAt,deletedAt
+        description: integrationId,name,createdBy,createdAt,updatedAt,deletedAt
+        in: query
+        name: fields
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Service'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Show Service
+      tags:
+      - meeting Service
+  /api/v1/Service/single:
+    post:
+      description: Create in CreateService
+      operationId: ApiV1MettingAppServiceCreate
+      parameters:
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.ServiceFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.Service'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create in Service
+      tags:
+      - meeting Service
+  /api/v1/Service/with-id/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete with path params in DeleteService
+      operationId: ApiV1MettingAppServiceDelete
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Delete with path params in Service
+      tags:
+      - meeting Service
+    get:
+      description: Get GetServiceById
+      operationId: ApiV1MettingAppServiceWithID
+      parameters:
+      - default: Service,Service
+        description: Service,Service
+        in: query
+        name: preload
+        type: string
+      - default: Service,Service
+        description: Service,Service
+        in: query
+        name: joins
+        type: string
+      - default: integrationId,name,createdBy,createdAt,updatedAt,deletedAt
+        description: integrationId,name,createdBy,createdAt,updatedAt,deletedAt
+        in: query
+        name: fields
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Service'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Get Service by Unique IDs
+      tags:
+      - meeting Service
+    put:
+      description: Update with id in UpdateService
+      operationId: ApiV1MettingAppServiceUpdateWithID
+      parameters:
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.ServiceEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.Service'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update with id in Service
+      tags:
+      - meeting Service
   /meeting/Customer/multiple:
     post:
       description: Create Multiple in CreateCustomer
@@ -701,418 +1113,6 @@ paths:
       summary: Update with id in Customer
       tags:
       - meeting Customer
-  /meeting/CustomerServiceHistory/multiple:
-    post:
-      description: Create Multiple in CreateCustomerServiceHistory
-      operationId: ApiV1MeetingAppCustomerServiceHistoryCreateMultiple
-      parameters:
-      - default: '[[authToken]]'
-        description: Current Session Token
-        in: header
-        name: Authorization
-        required: true
-        type: string
-      - default: '[[companyID]]'
-        description: Current CompanyID
-        in: header
-        name: x-company
-        required: true
-        type: string
-      - description: id uuid
-        in: path
-        name: id
-        type: string
-      - description: update params
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/api_structures.CustomerServiceHistoryFilter'
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.CustomerServiceHistory'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Create Multiple in CustomerServiceHistory
-      tags:
-      - meeting CustomerServiceHistory
-    put:
-      description: Update Multiple in UpdateCustomerServiceHistory
-      operationId: ApiV1MeetingAppCustomerServiceHistorysUpdateMultiple
-      parameters:
-      - description: id uuid
-        in: path
-        name: id
-        type: string
-      - description: update params
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/api_structures.CustomerServiceHistoryEdit'
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.CustomerServiceHistory'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Update Multiple in CustomerServiceHistory
-      tags:
-      - meeting CustomerServiceHistory
-  /meeting/CustomerServiceHistory/pagination:
-    get:
-      description: Pagination GetCustomerServiceHistoryWithPagination
-      operationId: ApiV1MeetingAppCustomerServiceHistoryPagination
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.CustomerServiceHistory'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Pagination CustomerServiceHistory
-      tags:
-      - meeting CustomerServiceHistory
-  /meeting/CustomerServiceHistory/search:
-    get:
-      description: Get GetCustomerServiceHistory
-      operationId: ApiV1MeetingAppCustomerServiceHistorySearch
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.CustomerServiceHistory'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Show CustomerServiceHistory
-      tags:
-      - meeting CustomerServiceHistory
-  /meeting/CustomerServiceHistory/single:
-    post:
-      description: Create in CreateCustomerServiceHistory
-      operationId: ApiV1MeetingAppCustomerServiceHistoryCreate
-      parameters:
-      - description: id uuid
-        in: path
-        name: id
-        type: string
-      - description: update params
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/api_structures.CustomerServiceHistoryFilter'
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/api_structures.CustomerServiceHistory'
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Create in CustomerServiceHistory
-      tags:
-      - meeting CustomerServiceHistory
-  /meeting/CustomerServiceHistory/with-id/:id:
-    delete:
-      consumes:
-      - application/json
-      description: Delete with path params in DeleteCustomerServiceHistory
-      operationId: ApiV1MeetingAppCustomerServiceHistoryDelete
-      parameters:
-      - description: id uuid
-        in: path
-        name: id
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            type: string
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Delete with path params in CustomerServiceHistory
-      tags:
-      - meeting CustomerServiceHistory
-    get:
-      description: Get GetCustomerServiceHistoryById
-      operationId: ApiV1MeetingAppCustomerServiceHistoryWithID
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.CustomerServiceHistory'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Get CustomerServiceHistory by Unique IDs
-      tags:
-      - meeting CustomerServiceHistory
-    put:
-      description: Update with id in UpdateCustomerServiceHistory
-      operationId: ApiV1MeetingAppCustomerServiceHistoryUpdateWithID
-      parameters:
-      - description: id uuid
-        in: path
-        name: id
-        type: string
-      - description: update params
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/api_structures.CustomerServiceHistoryEdit'
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/api_structures.CustomerServiceHistory'
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Update with id in CustomerServiceHistory
-      tags:
-      - meeting CustomerServiceHistory
-  /meeting/Service/multiple:
-    post:
-      description: Create Multiple in CreateService
-      operationId: ApiV1MettingAppServiceCreateMultiple
-      parameters:
-      - description: id uuid
-        in: path
-        name: id
-        type: string
-      - description: update params
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/api_structures.ServiceFilter'
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.Service'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Create Multiple in Service
-      tags:
-      - meeting Service
-    put:
-      description: Update Multiple in UpdateService
-      operationId: ApiV1MettingAppServicesUpdateMultiple
-      parameters:
-      - description: update params
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/api_structures.ServiceEdit'
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.Service'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Update Multiple in Service
-      tags:
-      - meeting Service
-  /meeting/Service/pagination:
-    get:
-      description: Pagination GetServiceWithPagination
-      operationId: ApiV1MettingAppServicePagination
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.Service'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Pagination Service
-      tags:
-      - meeting Service
-  /meeting/Service/search:
-    get:
-      description: Get GetService
-      operationId: ApiV1MettingAppServiceSearch
-      parameters:
-      - default: 1
-        description: "1"
-        in: query
-        name: page
-        type: integer
-      - default: 10
-        description: "10"
-        in: query
-        name: size
-        type: integer
-      - default: integrationId
-        description: -id,name
-        in: query
-        name: sort
-        type: string
-      - default: '[]'
-        description: '[[col,eq,1],[col,eq,2],(missing and rule)[[col,eq,1],and|or,[col,eq,2]]]'
-        in: query
-        name: filters
-        type: string
-      - default: Service,Service
-        description: Service,Service
-        in: query
-        name: preload
-        type: string
-      - default: Service,Service
-        description: Service,Service
-        in: query
-        name: joins
-        type: string
-      - default: integrationId,name,createdBy,createdAt,updatedAt,deletedAt
-        description: integrationId,name,createdBy,createdAt,updatedAt,deletedAt
-        in: query
-        name: fields
-        type: string
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.Service'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Show Service
-      tags:
-      - meeting Service
-  /meeting/Service/single:
-    post:
-      description: Create in CreateService
-      operationId: ApiV1MettingAppServiceCreate
-      parameters:
-      - description: update params
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/api_structures.ServiceFilter'
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/api_structures.Service'
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Create in Service
-      tags:
-      - meeting Service
-  /meeting/Service/with-id/:id:
-    delete:
-      consumes:
-      - application/json
-      description: Delete with path params in DeleteService
-      operationId: ApiV1MettingAppServiceDelete
-      parameters:
-      - description: id uuid
-        in: path
-        name: id
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            type: string
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Delete with path params in Service
-      tags:
-      - meeting Service
-    get:
-      description: Get GetServiceById
-      operationId: ApiV1MettingAppServiceWithID
-      parameters:
-      - default: Service,Service
-        description: Service,Service
-        in: query
-        name: preload
-        type: string
-      - default: Service,Service
-        description: Service,Service
-        in: query
-        name: joins
-        type: string
-      - default: integrationId,name,createdBy,createdAt,updatedAt,deletedAt
-        description: integrationId,name,createdBy,createdAt,updatedAt,deletedAt
-        in: query
-        name: fields
-        type: string
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.Service'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Get Service by Unique IDs
-      tags:
-      - meeting Service
-    put:
-      description: Update with id in UpdateService
-      operationId: ApiV1MettingAppServiceUpdateWithID
-      parameters:
-      - description: update params
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/api_structures.ServiceEdit'
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/api_structures.Service'
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Update with id in Service
-      tags:
-      - meeting Service
 produces:
 - application/json
 schemes:

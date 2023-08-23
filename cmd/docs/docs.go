@@ -22,7 +22,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/meeting/Appointment/multiple": {
+        "/api/v1/Appointment/multiple": {
             "put": {
                 "description": "Update Multiple in UpdateAppointment",
                 "tags": [
@@ -120,7 +120,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/meeting/Appointment/pagination": {
+        "/api/v1/Appointment/pagination": {
             "get": {
                 "description": "Pagination GetAppointmentWithPagination",
                 "tags": [
@@ -145,7 +145,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/meeting/Appointment/search": {
+        "/api/v1/Appointment/search": {
             "get": {
                 "description": "Get GetAppointment",
                 "tags": [
@@ -170,7 +170,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/meeting/Appointment/single": {
+        "/api/v1/Appointment/single": {
             "post": {
                 "description": "Create in CreateAppointment",
                 "tags": [
@@ -209,7 +209,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/meeting/Appointment/with-id/:id": {
+        "/api/v1/Appointment/with-id/:id": {
             "get": {
                 "description": "Get GetAppointmentById",
                 "tags": [
@@ -283,6 +283,612 @@ const docTemplate = `{
                 ],
                 "summary": "Delete with path params in Appointment",
                 "operationId": "ApiV1MeetingAppAppointmentDelete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id uuid",
+                        "name": "id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/CustomerServiceHistory/multiple": {
+            "put": {
+                "description": "Update Multiple in UpdateCustomerServiceHistory",
+                "tags": [
+                    "meeting CustomerServiceHistory"
+                ],
+                "summary": "Update Multiple in CustomerServiceHistory",
+                "operationId": "ApiV1MeetingAppCustomerServiceHistorysUpdateMultiple",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id uuid",
+                        "name": "id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "update params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.CustomerServiceHistoryEdit"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.CustomerServiceHistory"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            },
+            "post": {
+                "description": "Create Multiple in CreateCustomerServiceHistory",
+                "tags": [
+                    "meeting CustomerServiceHistory"
+                ],
+                "summary": "Create Multiple in CustomerServiceHistory",
+                "operationId": "ApiV1MeetingAppCustomerServiceHistoryCreateMultiple",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "default": "[[authToken]]",
+                        "description": "Current Session Token",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "default": "[[companyID]]",
+                        "description": "Current CompanyID",
+                        "name": "x-company",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "id uuid",
+                        "name": "id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "update params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.CustomerServiceHistoryFilter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.CustomerServiceHistory"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/CustomerServiceHistory/pagination": {
+            "get": {
+                "description": "Pagination GetCustomerServiceHistoryWithPagination",
+                "tags": [
+                    "meeting CustomerServiceHistory"
+                ],
+                "summary": "Pagination CustomerServiceHistory",
+                "operationId": "ApiV1MeetingAppCustomerServiceHistoryPagination",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.CustomerServiceHistory"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/CustomerServiceHistory/search": {
+            "get": {
+                "description": "Get GetCustomerServiceHistory",
+                "tags": [
+                    "meeting CustomerServiceHistory"
+                ],
+                "summary": "Show CustomerServiceHistory",
+                "operationId": "ApiV1MeetingAppCustomerServiceHistorySearch",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.CustomerServiceHistory"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/CustomerServiceHistory/single": {
+            "post": {
+                "description": "Create in CreateCustomerServiceHistory",
+                "tags": [
+                    "meeting CustomerServiceHistory"
+                ],
+                "summary": "Create in CustomerServiceHistory",
+                "operationId": "ApiV1MeetingAppCustomerServiceHistoryCreate",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id uuid",
+                        "name": "id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "update params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.CustomerServiceHistoryFilter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.CustomerServiceHistory"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/CustomerServiceHistory/with-id/:id": {
+            "get": {
+                "description": "Get GetCustomerServiceHistoryById",
+                "tags": [
+                    "meeting CustomerServiceHistory"
+                ],
+                "summary": "Get CustomerServiceHistory by Unique IDs",
+                "operationId": "ApiV1MeetingAppCustomerServiceHistoryWithID",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.CustomerServiceHistory"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            },
+            "put": {
+                "description": "Update with id in UpdateCustomerServiceHistory",
+                "tags": [
+                    "meeting CustomerServiceHistory"
+                ],
+                "summary": "Update with id in CustomerServiceHistory",
+                "operationId": "ApiV1MeetingAppCustomerServiceHistoryUpdateWithID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id uuid",
+                        "name": "id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "update params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.CustomerServiceHistoryEdit"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.CustomerServiceHistory"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete with path params in DeleteCustomerServiceHistory",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "meeting CustomerServiceHistory"
+                ],
+                "summary": "Delete with path params in CustomerServiceHistory",
+                "operationId": "ApiV1MeetingAppCustomerServiceHistoryDelete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id uuid",
+                        "name": "id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/Service/multiple": {
+            "put": {
+                "description": "Update Multiple in UpdateService",
+                "tags": [
+                    "meeting Service"
+                ],
+                "summary": "Update Multiple in Service",
+                "operationId": "ApiV1MettingAppServicesUpdateMultiple",
+                "parameters": [
+                    {
+                        "description": "update params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.ServiceEdit"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.Service"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            },
+            "post": {
+                "description": "Create Multiple in CreateService",
+                "tags": [
+                    "meeting Service"
+                ],
+                "summary": "Create Multiple in Service",
+                "operationId": "ApiV1MettingAppServiceCreateMultiple",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id uuid",
+                        "name": "id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "update params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.ServiceFilter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.Service"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/Service/pagination": {
+            "get": {
+                "description": "Pagination GetServiceWithPagination",
+                "tags": [
+                    "meeting Service"
+                ],
+                "summary": "Pagination Service",
+                "operationId": "ApiV1MettingAppServicePagination",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.Service"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/Service/search": {
+            "get": {
+                "description": "Get GetService",
+                "tags": [
+                    "meeting Service"
+                ],
+                "summary": "Show Service",
+                "operationId": "ApiV1MettingAppServiceSearch",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "default": 1,
+                        "description": "1",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "default": 10,
+                        "description": "10",
+                        "name": "size",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "default": "integrationId",
+                        "description": "-id,name",
+                        "name": "sort",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "default": "[]",
+                        "description": "[[col,eq,1],[col,eq,2],(missing and rule)[[col,eq,1],and|or,[col,eq,2]]]",
+                        "name": "filters",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "default": "Service,Service",
+                        "description": "Service,Service",
+                        "name": "preload",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "default": "Service,Service",
+                        "description": "Service,Service",
+                        "name": "joins",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "default": "integrationId,name,createdBy,createdAt,updatedAt,deletedAt",
+                        "description": "integrationId,name,createdBy,createdAt,updatedAt,deletedAt",
+                        "name": "fields",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.Service"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/Service/single": {
+            "post": {
+                "description": "Create in CreateService",
+                "tags": [
+                    "meeting Service"
+                ],
+                "summary": "Create in Service",
+                "operationId": "ApiV1MettingAppServiceCreate",
+                "parameters": [
+                    {
+                        "description": "update params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.ServiceFilter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.Service"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/Service/with-id/:id": {
+            "get": {
+                "description": "Get GetServiceById",
+                "tags": [
+                    "meeting Service"
+                ],
+                "summary": "Get Service by Unique IDs",
+                "operationId": "ApiV1MettingAppServiceWithID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "default": "Service,Service",
+                        "description": "Service,Service",
+                        "name": "preload",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "default": "Service,Service",
+                        "description": "Service,Service",
+                        "name": "joins",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "default": "integrationId,name,createdBy,createdAt,updatedAt,deletedAt",
+                        "description": "integrationId,name,createdBy,createdAt,updatedAt,deletedAt",
+                        "name": "fields",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.Service"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            },
+            "put": {
+                "description": "Update with id in UpdateService",
+                "tags": [
+                    "meeting Service"
+                ],
+                "summary": "Update with id in Service",
+                "operationId": "ApiV1MettingAppServiceUpdateWithID",
+                "parameters": [
+                    {
+                        "description": "update params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.ServiceEdit"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.Service"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete with path params in DeleteService",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "meeting Service"
+                ],
+                "summary": "Delete with path params in Service",
+                "operationId": "ApiV1MettingAppServiceDelete",
                 "parameters": [
                     {
                         "type": "string",
@@ -566,612 +1172,6 @@ const docTemplate = `{
                 ],
                 "summary": "Delete with path params in Customer",
                 "operationId": "ApiV1MeetingAppCustomerDelete",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "id uuid",
-                        "name": "id",
-                        "in": "path"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/CustomerServiceHistory/multiple": {
-            "put": {
-                "description": "Update Multiple in UpdateCustomerServiceHistory",
-                "tags": [
-                    "meeting CustomerServiceHistory"
-                ],
-                "summary": "Update Multiple in CustomerServiceHistory",
-                "operationId": "ApiV1MeetingAppCustomerServiceHistorysUpdateMultiple",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "id uuid",
-                        "name": "id",
-                        "in": "path"
-                    },
-                    {
-                        "description": "update params",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.CustomerServiceHistoryEdit"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.CustomerServiceHistory"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            },
-            "post": {
-                "description": "Create Multiple in CreateCustomerServiceHistory",
-                "tags": [
-                    "meeting CustomerServiceHistory"
-                ],
-                "summary": "Create Multiple in CustomerServiceHistory",
-                "operationId": "ApiV1MeetingAppCustomerServiceHistoryCreateMultiple",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "default": "[[authToken]]",
-                        "description": "Current Session Token",
-                        "name": "Authorization",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "default": "[[companyID]]",
-                        "description": "Current CompanyID",
-                        "name": "x-company",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "id uuid",
-                        "name": "id",
-                        "in": "path"
-                    },
-                    {
-                        "description": "update params",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.CustomerServiceHistoryFilter"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.CustomerServiceHistory"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/CustomerServiceHistory/pagination": {
-            "get": {
-                "description": "Pagination GetCustomerServiceHistoryWithPagination",
-                "tags": [
-                    "meeting CustomerServiceHistory"
-                ],
-                "summary": "Pagination CustomerServiceHistory",
-                "operationId": "ApiV1MeetingAppCustomerServiceHistoryPagination",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.CustomerServiceHistory"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/CustomerServiceHistory/search": {
-            "get": {
-                "description": "Get GetCustomerServiceHistory",
-                "tags": [
-                    "meeting CustomerServiceHistory"
-                ],
-                "summary": "Show CustomerServiceHistory",
-                "operationId": "ApiV1MeetingAppCustomerServiceHistorySearch",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.CustomerServiceHistory"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/CustomerServiceHistory/single": {
-            "post": {
-                "description": "Create in CreateCustomerServiceHistory",
-                "tags": [
-                    "meeting CustomerServiceHistory"
-                ],
-                "summary": "Create in CustomerServiceHistory",
-                "operationId": "ApiV1MeetingAppCustomerServiceHistoryCreate",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "id uuid",
-                        "name": "id",
-                        "in": "path"
-                    },
-                    {
-                        "description": "update params",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.CustomerServiceHistoryFilter"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.CustomerServiceHistory"
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/CustomerServiceHistory/with-id/:id": {
-            "get": {
-                "description": "Get GetCustomerServiceHistoryById",
-                "tags": [
-                    "meeting CustomerServiceHistory"
-                ],
-                "summary": "Get CustomerServiceHistory by Unique IDs",
-                "operationId": "ApiV1MeetingAppCustomerServiceHistoryWithID",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.CustomerServiceHistory"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            },
-            "put": {
-                "description": "Update with id in UpdateCustomerServiceHistory",
-                "tags": [
-                    "meeting CustomerServiceHistory"
-                ],
-                "summary": "Update with id in CustomerServiceHistory",
-                "operationId": "ApiV1MeetingAppCustomerServiceHistoryUpdateWithID",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "id uuid",
-                        "name": "id",
-                        "in": "path"
-                    },
-                    {
-                        "description": "update params",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.CustomerServiceHistoryEdit"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.CustomerServiceHistory"
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            },
-            "delete": {
-                "description": "Delete with path params in DeleteCustomerServiceHistory",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "meeting CustomerServiceHistory"
-                ],
-                "summary": "Delete with path params in CustomerServiceHistory",
-                "operationId": "ApiV1MeetingAppCustomerServiceHistoryDelete",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "id uuid",
-                        "name": "id",
-                        "in": "path"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/Service/multiple": {
-            "put": {
-                "description": "Update Multiple in UpdateService",
-                "tags": [
-                    "meeting Service"
-                ],
-                "summary": "Update Multiple in Service",
-                "operationId": "ApiV1MettingAppServicesUpdateMultiple",
-                "parameters": [
-                    {
-                        "description": "update params",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.ServiceEdit"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.Service"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            },
-            "post": {
-                "description": "Create Multiple in CreateService",
-                "tags": [
-                    "meeting Service"
-                ],
-                "summary": "Create Multiple in Service",
-                "operationId": "ApiV1MettingAppServiceCreateMultiple",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "id uuid",
-                        "name": "id",
-                        "in": "path"
-                    },
-                    {
-                        "description": "update params",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.ServiceFilter"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.Service"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/Service/pagination": {
-            "get": {
-                "description": "Pagination GetServiceWithPagination",
-                "tags": [
-                    "meeting Service"
-                ],
-                "summary": "Pagination Service",
-                "operationId": "ApiV1MettingAppServicePagination",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.Service"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/Service/search": {
-            "get": {
-                "description": "Get GetService",
-                "tags": [
-                    "meeting Service"
-                ],
-                "summary": "Show Service",
-                "operationId": "ApiV1MettingAppServiceSearch",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "default": 1,
-                        "description": "1",
-                        "name": "page",
-                        "in": "query"
-                    },
-                    {
-                        "type": "integer",
-                        "default": 10,
-                        "description": "10",
-                        "name": "size",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "default": "integrationId",
-                        "description": "-id,name",
-                        "name": "sort",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "default": "[]",
-                        "description": "[[col,eq,1],[col,eq,2],(missing and rule)[[col,eq,1],and|or,[col,eq,2]]]",
-                        "name": "filters",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "default": "Service,Service",
-                        "description": "Service,Service",
-                        "name": "preload",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "default": "Service,Service",
-                        "description": "Service,Service",
-                        "name": "joins",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "default": "integrationId,name,createdBy,createdAt,updatedAt,deletedAt",
-                        "description": "integrationId,name,createdBy,createdAt,updatedAt,deletedAt",
-                        "name": "fields",
-                        "in": "query"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.Service"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/Service/single": {
-            "post": {
-                "description": "Create in CreateService",
-                "tags": [
-                    "meeting Service"
-                ],
-                "summary": "Create in Service",
-                "operationId": "ApiV1MettingAppServiceCreate",
-                "parameters": [
-                    {
-                        "description": "update params",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.ServiceFilter"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.Service"
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/Service/with-id/:id": {
-            "get": {
-                "description": "Get GetServiceById",
-                "tags": [
-                    "meeting Service"
-                ],
-                "summary": "Get Service by Unique IDs",
-                "operationId": "ApiV1MettingAppServiceWithID",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "default": "Service,Service",
-                        "description": "Service,Service",
-                        "name": "preload",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "default": "Service,Service",
-                        "description": "Service,Service",
-                        "name": "joins",
-                        "in": "query"
-                    },
-                    {
-                        "type": "string",
-                        "default": "integrationId,name,createdBy,createdAt,updatedAt,deletedAt",
-                        "description": "integrationId,name,createdBy,createdAt,updatedAt,deletedAt",
-                        "name": "fields",
-                        "in": "query"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.Service"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            },
-            "put": {
-                "description": "Update with id in UpdateService",
-                "tags": [
-                    "meeting Service"
-                ],
-                "summary": "Update with id in Service",
-                "operationId": "ApiV1MettingAppServiceUpdateWithID",
-                "parameters": [
-                    {
-                        "description": "update params",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.ServiceEdit"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.Service"
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            },
-            "delete": {
-                "description": "Delete with path params in DeleteService",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "meeting Service"
-                ],
-                "summary": "Delete with path params in Service",
-                "operationId": "ApiV1MettingAppServiceDelete",
                 "parameters": [
                     {
                         "type": "string",
@@ -1631,7 +1631,7 @@ const docTemplate = `{
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
 	Host:             "",
-	BasePath:         "/api/v1",
+	BasePath:         "/",
 	Schemes:          []string{"http", "https"},
 	Title:            "Meetin APP API",
 	Description:      "",

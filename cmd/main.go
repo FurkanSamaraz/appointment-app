@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	_ "meeting_app/cmd/docs"
 	"meeting_app/configs"
 	"meeting_app/configs/postgres"
 	"meeting_app/internal"
@@ -9,11 +10,12 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/monitor"
+	"github.com/gofiber/swagger"
 )
 
 // @title          Meetin APP API
 // @version        1.0
-// @BasePath       /api/v1
+// @BasePath       /
 // @schemes        http https
 // @Accept         json
 // @Produce        json
@@ -39,13 +41,13 @@ func main() {
 		DisableColors: true,
 	}))
 
-	app.Get("/", func(c *fiber.Ctx) error {
-
-		return c.JSON(map[string]string{"hello": "world"})
-	})
 	app.Get("/metrics", monitor.New())
 
 	api := app.Group("/api")
+	app.Get("/swagger/*", swagger.New(swagger.Config{
+		URL:         "/swagger/doc.json", // Sunucu URL'sine göre güncelleyin
+		DeepLinking: false,
+	}))
 
 	internal.Setup(api, db.DB)
 
