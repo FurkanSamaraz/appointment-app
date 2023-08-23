@@ -9,6 +9,7 @@ import (
 type AppointmentForm struct {
 	ID              uuid.UUID `gorm:"column:id;primaryKey" json:"id" swaggertype:"string"  example:"e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d" `
 	CustomerID      uuid.UUID `gorm:"column:customer_id" json:"customerID" swaggertype:"string"  example:"e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d" `
+	ServiceID       uuid.UUID `gorm:"column:service_id;not null" json:"serviceId" validation:"required" swaggertype:"string"  example:"e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d" `
 	AppointmentDate time.Time `gorm:"column:appointment_date" json:"appointmentDate" swaggertype:"string"  example:"1960-11-10T04:48:09Z" `
 	Purpose         string    `gorm:"column:purpose" json:"purpose" swaggertype:"string"  example:"1960-11-10T04:48:09Z" `
 	CreatedAt       time.Time `gorm:"column:created_at" json:"createdAt" swaggertype:"string"  example:"1960-11-10T04:48:09Z" `
@@ -23,6 +24,7 @@ func (p *AppointmentForm) TableName() string {
 type Appointment struct {
 	ID              uuid.UUID `gorm:"column:id;primaryKey" json:"id" swaggertype:"string"  example:"e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d" `
 	CustomerID      uuid.UUID `gorm:"column:customer_id" json:"customerID" swaggertype:"string"  example:"e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d" `
+	ServiceID       uuid.UUID `gorm:"column:service_id;not null" json:"serviceId" validation:"required" swaggertype:"string"  example:"e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d" `
 	AppointmentDate time.Time `gorm:"column:appointment_date" json:"appointmentDate" swaggertype:"string"  example:"1960-11-10T04:48:09Z" `
 	Purpose         string    `gorm:"column:purpose" json:"purpose" swaggertype:"string"  example:"1960-11-10T04:48:09Z" `
 	CreatedAt       time.Time `gorm:"column:created_at" json:"createdAt" swaggertype:"string"  example:"1960-11-10T04:48:09Z" `
@@ -37,6 +39,7 @@ func (p *Appointment) TableName() string {
 type AppointmentEdit struct {
 	ID              uuid.UUID `gorm:"column:id;primaryKey" json:"id" swaggertype:"string"  example:"e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d" `
 	CustomerID      uuid.UUID `gorm:"column:customer_id" json:"customerID" swaggertype:"string"  example:"e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d" `
+	ServiceID       uuid.UUID `gorm:"column:service_id;not null" json:"serviceId" validation:"required" swaggertype:"string"  example:"e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d" `
 	AppointmentDate time.Time `gorm:"column:appointment_date" json:"appointmentDate" swaggertype:"string"  example:"1960-11-10T04:48:09Z" `
 	Purpose         string    `gorm:"column:purpose" json:"purpose" swaggertype:"string"  example:"1960-11-10T04:48:09Z" `
 	CreatedAt       time.Time `gorm:"column:created_at" json:"createdAt" swaggertype:"string"  example:"1960-11-10T04:48:09Z" `
@@ -47,6 +50,7 @@ type AppointmentEdit struct {
 type AppointmentFilter struct {
 	ID              uuid.UUID `gorm:"column:id;primaryKey" json:"id" swaggertype:"string"  example:"e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d" `
 	CustomerID      uuid.UUID `gorm:"column:customer_id" json:"customerID" swaggertype:"string"  example:"e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d" `
+	ServiceID       uuid.UUID `gorm:"column:service_id;not null" json:"serviceId" validation:"required" swaggertype:"string"  example:"e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d" `
 	AppointmentDate time.Time `gorm:"column:appointment_date" json:"appointmentDate" swaggertype:"string"  example:"1960-11-10T04:48:09Z" `
 	Purpose         string    `gorm:"column:purpose" json:"purpose" swaggertype:"string"  example:"1960-11-10T04:48:09Z" `
 	CreatedAt       time.Time `gorm:"column:created_at" json:"createdAt" swaggertype:"string"  example:"1960-11-10T04:48:09Z" `

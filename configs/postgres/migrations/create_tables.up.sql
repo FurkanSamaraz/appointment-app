@@ -1,5 +1,5 @@
 CREATE TABLE customers (
-    customer_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
@@ -8,15 +8,16 @@ CREATE TABLE customers (
 );
 
 CREATE TABLE appointments (
-    appointment_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     customer_id uuid REFERENCES customers(customer_id),
+    service_id uuid REFERENCES services(service_id),
     appointment_date TIMESTAMP NOT NULL,
     purpose VARCHAR(200),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE services (
-    service_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     service_name VARCHAR(100) NOT NULL,
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
@@ -24,7 +25,7 @@ CREATE TABLE services (
 );
 
 CREATE TABLE customer_service_history (
-    history_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     customer_id uuid REFERENCES customers(customer_id),
     service_id uuid REFERENCES services(service_id),
     appointment_id uuid REFERENCES appointments(appointment_id),

@@ -22,6 +22,9 @@ definitions:
       purpose:
         example: "1960-11-10T04:48:09Z"
         type: string
+      serviceId:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
       updatedAt:
         example: "1986-08-02T22:27:19Z"
         type: string
@@ -46,6 +49,9 @@ definitions:
       purpose:
         example: "1960-11-10T04:48:09Z"
         type: string
+      serviceId:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
+        type: string
       updatedAt:
         example: "1986-08-02T22:27:19Z"
         type: string
@@ -69,6 +75,9 @@ definitions:
         type: string
       purpose:
         example: "1960-11-10T04:48:09Z"
+        type: string
+      serviceId:
+        example: e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d
         type: string
       updatedAt:
         example: "1986-08-02T22:27:19Z"
@@ -509,6 +518,198 @@ paths:
       summary: Update with id in Appointment
       tags:
       - meeting Appointment
+  /api/v1/Customer/multiple:
+    post:
+      description: Create Multiple in CreateCustomer
+      operationId: ApiV1MeetingAppCustomerCreateMultiple
+      parameters:
+      - default: '[[authToken]]'
+        description: Current Session Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - default: '[[companyID]]'
+        description: Current CompanyID
+        in: header
+        name: x-company
+        required: true
+        type: string
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Customer'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create Multiple in Customer
+      tags:
+      - meeting Customer
+    put:
+      description: Update Multiple in UpdateCustomer
+      operationId: ApiV1MeetingAppCustomersUpdateMultiple
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Customer'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update Multiple in Customer
+      tags:
+      - meeting Customer
+  /api/v1/Customer/pagination:
+    get:
+      description: Pagination GetCustomerWithPagination
+      operationId: ApiV1MeetingAppCustomerPagination
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Customer'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Pagination Customer
+      tags:
+      - meeting Customer
+  /api/v1/Customer/search:
+    get:
+      description: Get GetCustomer
+      operationId: ApiV1MeetingAppCustomerSearch
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Customer'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Show Customer
+      tags:
+      - meeting Customer
+  /api/v1/Customer/single:
+    post:
+      description: Create in CreateCustomer
+      operationId: ApiV1MeetingAppCustomerCreate
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerFilter'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.Customer'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Create in Customer
+      tags:
+      - meeting Customer
+  /api/v1/Customer/with-id/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete with path params in DeleteCustomer
+      operationId: ApiV1MeetingAppCustomerDelete
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Delete with path params in Customer
+      tags:
+      - meeting Customer
+    get:
+      description: Get GetCustomerById
+      operationId: ApiV1MeetingAppCustomerWithID
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/api_structures.Customer'
+            type: array
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Get Customer by Unique IDs
+      tags:
+      - meeting Customer
+    put:
+      description: Update with id in UpdateCustomer
+      operationId: ApiV1MeetingAppCustomerUpdateWithID
+      parameters:
+      - description: id uuid
+        in: path
+        name: id
+        type: string
+      - description: update params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api_structures.CustomerEdit'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api_structures.Customer'
+        "400":
+          description: Bad Request
+          schema: {}
+      summary: Update with id in Customer
+      tags:
+      - meeting Customer
   /api/v1/CustomerServiceHistory/multiple:
     post:
       description: Create Multiple in CreateCustomerServiceHistory
@@ -921,198 +1122,6 @@ paths:
       summary: Update with id in Service
       tags:
       - meeting Service
-  /meeting/Customer/multiple:
-    post:
-      description: Create Multiple in CreateCustomer
-      operationId: ApiV1MeetingAppCustomerCreateMultiple
-      parameters:
-      - default: '[[authToken]]'
-        description: Current Session Token
-        in: header
-        name: Authorization
-        required: true
-        type: string
-      - default: '[[companyID]]'
-        description: Current CompanyID
-        in: header
-        name: x-company
-        required: true
-        type: string
-      - description: id uuid
-        in: path
-        name: id
-        type: string
-      - description: update params
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/api_structures.CustomerFilter'
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.Customer'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Create Multiple in Customer
-      tags:
-      - meeting Customer
-    put:
-      description: Update Multiple in UpdateCustomer
-      operationId: ApiV1MeetingAppCustomersUpdateMultiple
-      parameters:
-      - description: id uuid
-        in: path
-        name: id
-        type: string
-      - description: update params
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/api_structures.CustomerEdit'
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.Customer'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Update Multiple in Customer
-      tags:
-      - meeting Customer
-  /meeting/Customer/pagination:
-    get:
-      description: Pagination GetCustomerWithPagination
-      operationId: ApiV1MeetingAppCustomerPagination
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.Customer'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Pagination Customer
-      tags:
-      - meeting Customer
-  /meeting/Customer/search:
-    get:
-      description: Get GetCustomer
-      operationId: ApiV1MeetingAppCustomerSearch
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.Customer'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Show Customer
-      tags:
-      - meeting Customer
-  /meeting/Customer/single:
-    post:
-      description: Create in CreateCustomer
-      operationId: ApiV1MeetingAppCustomerCreate
-      parameters:
-      - description: id uuid
-        in: path
-        name: id
-        type: string
-      - description: update params
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/api_structures.CustomerFilter'
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/api_structures.Customer'
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Create in Customer
-      tags:
-      - meeting Customer
-  /meeting/Customer/with-id/:id:
-    delete:
-      consumes:
-      - application/json
-      description: Delete with path params in DeleteCustomer
-      operationId: ApiV1MeetingAppCustomerDelete
-      parameters:
-      - description: id uuid
-        in: path
-        name: id
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            type: string
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Delete with path params in Customer
-      tags:
-      - meeting Customer
-    get:
-      description: Get GetCustomerById
-      operationId: ApiV1MeetingAppCustomerWithID
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/api_structures.Customer'
-            type: array
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Get Customer by Unique IDs
-      tags:
-      - meeting Customer
-    put:
-      description: Update with id in UpdateCustomer
-      operationId: ApiV1MeetingAppCustomerUpdateWithID
-      parameters:
-      - description: id uuid
-        in: path
-        name: id
-        type: string
-      - description: update params
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/api_structures.CustomerEdit'
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/api_structures.Customer'
-        "400":
-          description: Bad Request
-          schema: {}
-      summary: Update with id in Customer
-      tags:
-      - meeting Customer
 produces:
 - application/json
 schemes:

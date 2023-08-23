@@ -300,6 +300,289 @@
                 }
             }
         },
+        "/api/v1/Customer/multiple": {
+            "put": {
+                "description": "Update Multiple in UpdateCustomer",
+                "tags": [
+                    "meeting Customer"
+                ],
+                "summary": "Update Multiple in Customer",
+                "operationId": "ApiV1MeetingAppCustomersUpdateMultiple",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id uuid",
+                        "name": "id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "update params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.CustomerEdit"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.Customer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            },
+            "post": {
+                "description": "Create Multiple in CreateCustomer",
+                "tags": [
+                    "meeting Customer"
+                ],
+                "summary": "Create Multiple in Customer",
+                "operationId": "ApiV1MeetingAppCustomerCreateMultiple",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "default": "[[authToken]]",
+                        "description": "Current Session Token",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "default": "[[companyID]]",
+                        "description": "Current CompanyID",
+                        "name": "x-company",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "id uuid",
+                        "name": "id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "update params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.CustomerFilter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.Customer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/Customer/pagination": {
+            "get": {
+                "description": "Pagination GetCustomerWithPagination",
+                "tags": [
+                    "meeting Customer"
+                ],
+                "summary": "Pagination Customer",
+                "operationId": "ApiV1MeetingAppCustomerPagination",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.Customer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/Customer/search": {
+            "get": {
+                "description": "Get GetCustomer",
+                "tags": [
+                    "meeting Customer"
+                ],
+                "summary": "Show Customer",
+                "operationId": "ApiV1MeetingAppCustomerSearch",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.Customer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/Customer/single": {
+            "post": {
+                "description": "Create in CreateCustomer",
+                "tags": [
+                    "meeting Customer"
+                ],
+                "summary": "Create in Customer",
+                "operationId": "ApiV1MeetingAppCustomerCreate",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id uuid",
+                        "name": "id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "update params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.CustomerFilter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.Customer"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/api/v1/Customer/with-id/:id": {
+            "get": {
+                "description": "Get GetCustomerById",
+                "tags": [
+                    "meeting Customer"
+                ],
+                "summary": "Get Customer by Unique IDs",
+                "operationId": "ApiV1MeetingAppCustomerWithID",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/api_structures.Customer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            },
+            "put": {
+                "description": "Update with id in UpdateCustomer",
+                "tags": [
+                    "meeting Customer"
+                ],
+                "summary": "Update with id in Customer",
+                "operationId": "ApiV1MeetingAppCustomerUpdateWithID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id uuid",
+                        "name": "id",
+                        "in": "path"
+                    },
+                    {
+                        "description": "update params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.CustomerEdit"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/api_structures.Customer"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete with path params in DeleteCustomer",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "meeting Customer"
+                ],
+                "summary": "Delete with path params in Customer",
+                "operationId": "ApiV1MeetingAppCustomerDelete",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id uuid",
+                        "name": "id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {}
+                    }
+                }
+            }
+        },
         "/api/v1/CustomerServiceHistory/multiple": {
             "put": {
                 "description": "Update Multiple in UpdateCustomerServiceHistory",
@@ -905,289 +1188,6 @@
                     }
                 }
             }
-        },
-        "/meeting/Customer/multiple": {
-            "put": {
-                "description": "Update Multiple in UpdateCustomer",
-                "tags": [
-                    "meeting Customer"
-                ],
-                "summary": "Update Multiple in Customer",
-                "operationId": "ApiV1MeetingAppCustomersUpdateMultiple",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "id uuid",
-                        "name": "id",
-                        "in": "path"
-                    },
-                    {
-                        "description": "update params",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.CustomerEdit"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.Customer"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            },
-            "post": {
-                "description": "Create Multiple in CreateCustomer",
-                "tags": [
-                    "meeting Customer"
-                ],
-                "summary": "Create Multiple in Customer",
-                "operationId": "ApiV1MeetingAppCustomerCreateMultiple",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "default": "[[authToken]]",
-                        "description": "Current Session Token",
-                        "name": "Authorization",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "default": "[[companyID]]",
-                        "description": "Current CompanyID",
-                        "name": "x-company",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "id uuid",
-                        "name": "id",
-                        "in": "path"
-                    },
-                    {
-                        "description": "update params",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.CustomerFilter"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.Customer"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/Customer/pagination": {
-            "get": {
-                "description": "Pagination GetCustomerWithPagination",
-                "tags": [
-                    "meeting Customer"
-                ],
-                "summary": "Pagination Customer",
-                "operationId": "ApiV1MeetingAppCustomerPagination",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.Customer"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/Customer/search": {
-            "get": {
-                "description": "Get GetCustomer",
-                "tags": [
-                    "meeting Customer"
-                ],
-                "summary": "Show Customer",
-                "operationId": "ApiV1MeetingAppCustomerSearch",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.Customer"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/Customer/single": {
-            "post": {
-                "description": "Create in CreateCustomer",
-                "tags": [
-                    "meeting Customer"
-                ],
-                "summary": "Create in Customer",
-                "operationId": "ApiV1MeetingAppCustomerCreate",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "id uuid",
-                        "name": "id",
-                        "in": "path"
-                    },
-                    {
-                        "description": "update params",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.CustomerFilter"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.Customer"
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/meeting/Customer/with-id/:id": {
-            "get": {
-                "description": "Get GetCustomerById",
-                "tags": [
-                    "meeting Customer"
-                ],
-                "summary": "Get Customer by Unique IDs",
-                "operationId": "ApiV1MeetingAppCustomerWithID",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/api_structures.Customer"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            },
-            "put": {
-                "description": "Update with id in UpdateCustomer",
-                "tags": [
-                    "meeting Customer"
-                ],
-                "summary": "Update with id in Customer",
-                "operationId": "ApiV1MeetingAppCustomerUpdateWithID",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "id uuid",
-                        "name": "id",
-                        "in": "path"
-                    },
-                    {
-                        "description": "update params",
-                        "name": "request",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.CustomerEdit"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/api_structures.Customer"
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            },
-            "delete": {
-                "description": "Delete with path params in DeleteCustomer",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "meeting Customer"
-                ],
-                "summary": "Delete with path params in Customer",
-                "operationId": "ApiV1MeetingAppCustomerDelete",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "id uuid",
-                        "name": "id",
-                        "in": "path"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "schema": {}
-                    }
-                }
-            }
         }
     },
     "definitions": {
@@ -1217,6 +1217,10 @@
                 "purpose": {
                     "type": "string",
                     "example": "1960-11-10T04:48:09Z"
+                },
+                "serviceId": {
+                    "type": "string",
+                    "example": "e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d"
                 },
                 "updatedAt": {
                     "type": "string",
@@ -1251,6 +1255,10 @@
                     "type": "string",
                     "example": "1960-11-10T04:48:09Z"
                 },
+                "serviceId": {
+                    "type": "string",
+                    "example": "e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d"
+                },
                 "updatedAt": {
                     "type": "string",
                     "example": "1986-08-02T22:27:19Z"
@@ -1283,6 +1291,10 @@
                 "purpose": {
                     "type": "string",
                     "example": "1960-11-10T04:48:09Z"
+                },
+                "serviceId": {
+                    "type": "string",
+                    "example": "e4a3b2c1-3b2c-4a3b-a2c1-1b2c3a4b5c6d"
                 },
                 "updatedAt": {
                     "type": "string",
