@@ -27,3 +27,6 @@ Bu proje, müşteri randevularını yönetmek için bir uygulama geliştirmek am
 1. Bu depoyu klonlayın: `git clone <repo-url>`
 2. Proje klasörüne gidin: `cd appointment-app`
 3. Gerekli bağımlılıkları yükleyin: `go mod tidy`
+
+## Swagger UI
+- http://localhost:3000/swagger/index.html
